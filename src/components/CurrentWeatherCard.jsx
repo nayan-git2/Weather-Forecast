@@ -85,7 +85,12 @@ export default function CurrentWeatherCard({
             const latest = data.radar.past[data.radar.past.length - 1];
             L.tileLayer(
               `https://tilecache.rainviewer.com${latest.path}/256/{z}/{x}/{y}/2/1_1.png`,
-              { opacity: 0.65 }
+              {
+                opacity: 0.65,
+                maxNativeZoom: 7,
+                maxZoom: 18,
+                zIndex: 100,
+              }
             ).addTo(map);
           }
         })

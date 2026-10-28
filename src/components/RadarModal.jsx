@@ -108,6 +108,8 @@ export default function RadarModal({ isOpen, onClose, city, isDark = false }) {
     const newRadarLayer = L.tileLayer(radarUrl, {
       opacity: 0.72,
       zIndex: 100,
+      maxNativeZoom: 7,
+      maxZoom: 18,
     });
 
     newRadarLayer.addTo(mapInstanceRef.current);
