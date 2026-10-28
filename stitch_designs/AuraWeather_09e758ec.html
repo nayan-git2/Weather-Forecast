@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"slate-heading":"#0f172a","slate-body":"#334155","slate-muted":"#64748b","slate-border":"#e2e8f0","card-bg":"#ffffff","azure":"#0284c7","amber-sun":"#f59e0b","emerald-aqi":"#10b981"},"borderRadius":{"DEFAULT":"0.375rem","lg":"0.75rem","xl":"1rem","2xl":"1.25rem","full":"9999px"},"spacing":{"space-xs":"0.25rem","gutter-desktop":"1.5rem","margin":"1rem","gutter":"1.25rem","space-xl":"2rem","space-md":"1rem","space-sm":"0.5rem","space-lg":"1.5rem","margin-desktop":"3rem","margin-tablet":"2rem"},"fontFamily":{"headline-xl":["Space Grotesk"],"label-caps":["Geist"],"metric-readout":["Space Grotesk"],"display-hero-mobile":["Space Grotesk"],"body-sm":["Geist"],"headline-xl-mobile":["Space Grotesk"],"headline-sm":["Space Grotesk"],"label-mono":["Geist"],"headline-lg":["Space Grotesk"],"display-hero":["Space Grotesk"],"body-lg":["Geist"],"body-md":["Geist"]},"fontSize":{"headline-xl":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-caps":["11px",{"lineHeight":"14px","letterSpacing":"0.08em","fontWeight":"600"}],"metric-readout":["32px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"600"}],"display-hero-mobile":["56px",{"lineHeight":"64px","letterSpacing":"-0.03em","fontWeight":"400"}],"body-sm":["13px",{"lineHeight":"18px","letterSpacing":"0.005em","fontWeight":"400"}],"headline-xl-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-sm":["18px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"600"}],"label-mono":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"display-hero":["88px",{"lineHeight":"96px","letterSpacing":"-0.04em","fontWeight":"300"}],"body-lg":["16px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}],"body-md":["14px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"400"}]}}}}</script></head><body class="bg-gradient-to-br from-slate-50 via-sky-50/50 to-blue-50/30 text-slate-body min-h-screen selection:bg-sky-100 selection:text-sky-900 font-body-md antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-slate-200/80 shadow-[0_2px_15px_-3px_rgba(15,23,42,0.04)]"><div class="h-20 w-full px-gutter-desktop mx-auto flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg flex-shrink-0"><div class="flex items-center gap-space-sm"><div class="h-9 w-9 rounded-xl bg-gradient-to-tr from-sky-600 to-sky-400 flex items-center justify-center shadow-md shadow-sky-500/20"><span class="material-symbols-outlined text-white text-[22px]">air</span></div><span class="font-headline-sm text-headline-sm tracking-tight text-slate-900 font-bold">AuraSky</span></div><nav class="hidden xl:flex items-center gap-space-xs" data-active-classes="bg-sky-50 text-sky-700 font-medium rounded-lg"><a aria-current="page" class="px-space-md py-space-sm transition-all bg-sky-50 text-sky-700 font-semibold rounded-lg text-body-sm shadow-sm border border-sky-100/60" data-path="overview" href="#">Overview</a><a class="px-space-md py-space-sm rounded-lg font-body-sm text-body-sm text-slate-600 hover:text-slate-900 hover:bg-slate-100/80 transition-all" data-path="radar-and-maps" href="#">Live Radar &amp; Maps</a><a class="px-space-md py-space-sm rounded-lg font-body-sm text-body-sm text-slate-600 hover:text-slate-900 hover:bg-slate-100/80 transition-all" data-path="severe-weather-center" href="#">Alerts Monitor</a><a class="px-space-md py-space-sm rounded-lg font-body-sm text-body-sm text-slate-600 hover:text-slate-900 hover:bg-slate-100/80 transition-all" data-path="historical-telemetry" href="#">Telemetry Archive</a></nav></div><div class="flex-1 max-w-xl mx-space-sm hidden md:block"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-space-md text-slate-400 pointer-events-none text-[18px]">location_on</span><input class="w-full h-10 pl-10 pr-16 bg-slate-100/80 hover:bg-slate-100 focus:bg-white text-slate-800 placeholder:text-slate-400 text-body-sm font-body-sm rounded-full border border-slate-200/80 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 transition-all shadow-inner" placeholder="Search city, state, or postal code..." type="text"/><kbd class="absolute right-space-md py-0.5 px-space-xs bg-white text-slate-500 border border-slate-200 rounded text-label-mono font-label-mono text-[10px] shadow-sm">⌘K</kbd></div></div><div class="flex items-center gap-space-sm flex-shrink-0"><div class="hidden 2xl:flex items-center gap-space-xs"><button class="flex items-center gap-space-xs px-space-md py-1.5 rounded-full bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 shadow-sm transition-all" type="button"><span class="font-body-sm text-body-sm font-medium">San Francisco</span><span class="font-label-mono text-label-mono text-sky-600 font-semibold">18°C</span></button><button class="flex items-center gap-space-xs px-space-md py-1.5 rounded-full bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 shadow-sm transition-all" type="button"><span class="font-body-sm text-body-sm font-medium">Tokyo</span><span class="font-label-mono text-label-mono text-amber-600 font-semibold">22°C</span></button><button class="flex items-center gap-space-xs px-space-md py-1.5 rounded-full bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 shadow-sm transition-all" type="button"><span class="font-body-sm text-body-sm font-medium">London</span><span class="font-label-mono text-label-mono text-sky-600 font-semibold">14°C</span></button><button class="flex items-center gap-space-xs px-space-md py-1.5 rounded-full bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 shadow-sm transition-all" type="button"><span class="font-body-sm text-body-sm font-medium">New York</span><span class="font-label-mono text-label-mono text-amber-600 font-semibold">25°C</span></button></div><div class="flex items-center bg-slate-100 p-0.5 rounded-full border border-slate-200/60"><button class="px-2.5 py-1 rounded-full font-label-mono text-label-mono bg-white text-sky-700 font-semibold shadow-sm" type="button">°C</button><button class="px-2.5 py-1 rounded-full font-label-mono text-label-mono text-slate-500 hover:text-slate-900 transition-colors" type="button">°F</button></div><button aria-label="Severe Alerts" class="relative w-9 h-9 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:text-slate-900 hover:bg-slate-50 shadow-sm transition-all" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-rose-500 ring-2 ring-white"></span></button><div class="flex items-center pl-space-xs"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-slate-200" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNVuyXa6z9Z5e7BrAzp-DonGB0siwApZ4RaWPxCJ_ygc1-7Nm-qB_GkKvJWyGcs54xHmcHjbg8CcieP-p8nMlmj1ic7kBb651cdvXWX40k9HKax2zO_STrMygVLVGjd14PR2GHLOqd1SgHIt9t7rZ3pkkozcnErV1Afk-D-85IMYv8CivMPeBbtX2EoJCVSPY54EEVNzp4uyT3D8ITjgl8ZLvLk11V1MBmWq2gRANJ"/></div></div></div></header><main class="w-full pt-20 min-h-screen"><div class="flex flex-col w-full">
+<!-- Atmospheric Glow Accents (Light Morning Skies) -->
+<div class="relative w-full overflow-hidden">
+<div class="pointer-events-none absolute -top-40 left-1/4 w-[650px] h-[650px] bg-sky-200/35 rounded-full blur-[140px] -z-10"></div>
+<div class="pointer-events-none absolute top-80 right-10 w-[500px] h-[500px] bg-amber-200/25 rounded-full blur-[130px] -z-10"></div>
+<div class="pointer-events-none absolute bottom-40 left-10 w-[600px] h-[600px] bg-blue-100/40 rounded-full blur-[150px] -z-10"></div>
+<div class="w-full max-w-[1600px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop py-space-lg space-y-space-lg">
+<!-- 1. ACTIVE EXTREME WEATHER ALERT BANNER -->
+<section class="relative w-full rounded-2xl bg-rose-50/80 border border-rose-200/90 backdrop-blur-xl p-space-md md:p-space-lg shadow-[0_4px_20px_-2px_rgba(244,63,94,0.06)] overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-rose-500 via-amber-500 to-sky-500"></div>
+<div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-xl bg-rose-100 border border-rose-200 flex items-center justify-center text-rose-600 flex-shrink-0 mt-0.5 shadow-sm">
+<span class="material-symbols-outlined text-[24px]">air</span>
+</div>
+<div class="space-y-1">
+<div class="flex flex-wrap items-center gap-space-sm">
+<span class="px-2.5 py-0.5 rounded-full bg-rose-100 text-rose-700 font-label-caps text-label-caps tracking-wider uppercase border border-rose-200 font-bold">Moderate Risk</span>
+<span class="font-headline-sm text-headline-sm text-slate-900 font-semibold">High Wind &amp; Coastal Flood Advisory</span>
+<span class="text-slate-500 font-label-mono text-label-mono hidden sm:inline">• Valid until 8:00 PM PST</span>
+</div>
+<p class="font-body-md text-body-md text-slate-700 max-w-4xl">
+                Northwest wind gusts reaching <span class="text-slate-900 font-semibold">48 mph</span> across San Francisco Peninsula and coastal bluffs. Minor low-lying tidal flooding predicted during afternoon high tide window.
+              </p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm self-end lg:self-center flex-shrink-0">
+<button class="px-space-md py-1.5 rounded-full bg-white hover:bg-rose-100/50 border border-rose-200 text-rose-800 font-body-sm text-body-sm font-medium flex items-center gap-space-xs transition-colors shadow-sm" id="alertToggleBtn" onclick="toggleAlertDetails()">
+<span id="alertToggleText">View Full Protocol</span>
+<span class="material-symbols-outlined text-[18px] transition-transform duration-200" id="alertToggleIcon">expand_more</span>
+</button>
+</div>
+</div>
+<div class="hidden mt-space-md pt-space-md border-t border-rose-200/60 grid grid-cols-1 md:grid-cols-3 gap-space-md" id="alertDetails">
+<div class="bg-white/80 border border-rose-100 p-space-sm rounded-xl shadow-sm">
+<span class="font-label-caps text-label-caps text-rose-700 uppercase block font-semibold">Affected Zones</span>
+<span class="font-body-sm text-body-sm text-slate-800 mt-1 block">San Francisco Coastal Strip, Ocean Beach, Marin Headlands</span>
+</div>
+<div class="bg-white/80 border border-rose-100 p-space-sm rounded-xl shadow-sm">
+<span class="font-label-caps text-label-caps text-rose-700 uppercase block font-semibold">Peak Wind Velocity</span>
+<span class="font-body-sm text-body-sm text-slate-800 mt-1 block font-medium">42 - 48 mph gusts between 3:00 PM – 7:30 PM</span>
+</div>
+<div class="bg-white/80 border border-rose-100 p-space-sm rounded-xl shadow-sm">
+<span class="font-label-caps text-label-caps text-rose-700 uppercase block font-semibold">Station Advisory</span>
+<span class="font-body-sm text-body-sm text-slate-800 mt-1 block">Secure terrace furnishings; exercise caution on Golden Gate Bridge.</span>
+</div>
+</div>
+</section>
+<!-- 2. HERO CURRENT WEATHER BENTO SECTION -->
+<section class="w-full grid grid-cols-1 xl:grid-cols-12 gap-space-lg">
+<!-- Primary Weather Card (8 Cols) -->
+<div class="xl:col-span-8 rounded-2xl bg-white/90 backdrop-blur-2xl p-space-lg md:p-space-xl shadow-[0_4px_24px_-4px_rgba(15,23,42,0.06),0_2px_8px_-2px_rgba(15,23,42,0.03)] border border-slate-200/90 relative overflow-hidden flex flex-col justify-between">
+<div class="pointer-events-none absolute -right-16 -top-16 w-80 h-80 bg-sky-100/60 rounded-full blur-[90px]"></div>
+<!-- Top Meta Row & Location Switcher Pills -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md z-10">
+<div class="flex items-center gap-space-xs overflow-x-auto pb-1 sm:pb-0 scrollbar-none">
+<button class="px-space-md py-1 rounded-full bg-sky-600 text-white font-label-mono text-label-mono shadow-sm shadow-sky-600/20 flex items-center gap-1.5 flex-shrink-0 font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+                San Francisco, CA
+              </button>
+<button class="px-space-md py-1 rounded-full bg-slate-100 hover:bg-slate-200/70 text-slate-600 hover:text-slate-900 border border-slate-200 font-label-mono text-label-mono flex-shrink-0 transition-all">
+                New York 76°
+              </button>
+<button class="px-space-md py-1 rounded-full bg-slate-100 hover:bg-slate-200/70 text-slate-600 hover:text-slate-900 border border-slate-200 font-label-mono text-label-mono flex-shrink-0 transition-all">
+                Tokyo 68°
+              </button>
+<button class="px-space-md py-1 rounded-full bg-slate-100 hover:bg-slate-200/70 text-slate-600 hover:text-slate-900 border border-slate-200 font-label-mono text-label-mono flex-shrink-0 transition-all">
+                London 57°
+              </button>
+</div>
+<div class="flex items-center gap-space-sm text-slate-500 font-label-mono text-label-mono self-start sm:self-auto">
+<span class="flex items-center gap-1 font-medium"><span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>2:45 PM PST</span>
+<span>•</span>
+<span>Synced 2m ago</span>
+</div>
+</div>
+<!-- Main Readout Area -->
+<div class="my-space-lg flex flex-col md:flex-row md:items-center justify-between gap-space-lg z-10">
+<div class="space-y-space-xs">
+<div class="flex items-baseline gap-space-sm">
+<span class="font-display-hero text-display-hero text-slate-900 tracking-tight font-light">64°</span>
+<span class="font-headline-lg text-headline-lg text-slate-400 font-normal">/ 18°C</span>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm font-body-lg text-body-lg text-slate-800">
+<span class="font-semibold text-sky-700">Scattered Marine Clouds &amp; Gentle Breeze</span>
+</div>
+<div class="flex items-center gap-space-md text-slate-600 font-label-mono text-label-mono pt-1">
+<span>Feels like <strong class="text-slate-900 font-semibold">61°</strong></span>
+<span>•</span>
+<span>High <strong class="text-amber-600 font-semibold">68°</strong></span>
+<span>•</span>
+<span>Low <strong class="text-sky-700 font-semibold">52°</strong></span>
+</div>
+</div>
+<!-- Stylized Ambient Daylight SVG Sun & Marine Cloud Visual -->
+<div class="relative w-44 h-44 sm:w-52 sm:h-52 flex-shrink-0 self-center md:self-auto flex items-center justify-center">
+<svg class="w-full h-full drop-shadow-lg overflow-visible" viewbox="0 0 200 200">
+<defs>
+<radialgradient cx="50%" cy="50%" id="sunGlowLight" r="50%">
+<stop offset="0%" stop-color="#fde047" stop-opacity="1"></stop>
+<stop offset="60%" stop-color="#f59e0b" stop-opacity="0.85"></stop>
+<stop offset="100%" stop-color="#f59e0b" stop-opacity="0"></stop>
+</radialgradient>
+<lineargradient id="cloudGradLight" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#f1f5f9" stop-opacity="0.95"></stop>
+<stop offset="100%" stop-color="#cbd5e1" stop-opacity="0.9"></stop>
+</lineargradient>
+<lineargradient id="frontCloudLight" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#ffffff" stop-opacity="1"></stop>
+<stop offset="100%" stop-color="#e0f2fe" stop-opacity="0.95"></stop>
+</lineargradient>
+</defs>
+<!-- Sun Disk -->
+<circle class="animate-pulse" cx="120" cy="80" fill="url(#sunGlowLight)" r="44" style="animation-duration: 4s;"></circle>
+<circle cx="120" cy="80" fill="#f59e0b" r="32"></circle>
+<!-- Background Cloud Layer -->
+<path d="M45,130 Q45,105 70,105 Q78,85 105,90 Q125,75 145,95 Q165,100 165,125 Q165,145 140,145 L60,145 Q45,145 45,130 Z" fill="url(#cloudGradLight)" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))" opacity="0.8"></path>
+<!-- Primary Foreground Stratus Cloud -->
+<path d="M30,145 Q30,120 55,120 Q65,95 95,100 Q120,85 145,110 Q165,112 165,135 Q165,155 145,155 L50,155 Q30,155 30,145 Z" fill="url(#frontCloudLight)" filter="drop-shadow(0 4px 8px rgba(0,0,0,0.08))" stroke="#e2e8f0" stroke-width="1.5"></path>
+<!-- Dynamic Mist Streamlines -->
+<line opacity="0.85" stroke="#38bdf8" stroke-linecap="round" stroke-width="3" x1="20" x2="110" y1="165" y2="165"></line>
+<line opacity="0.65" stroke="#0284c7" stroke-linecap="round" stroke-width="2.5" x1="45" x2="155" y1="173" y2="173"></line>
+</svg>
+</div>
+</div>
+<!-- Quick Metrics Bar inside Hero Bento -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-sm pt-space-md border-t border-slate-200/80">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-sky-50 text-sky-600 flex items-center justify-center border border-sky-100">
+<span class="material-symbols-outlined text-[18px]">air</span>
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-slate-400 block font-semibold">WIND DIRECTION</span>
+<span class="font-label-mono text-label-mono text-slate-800 font-semibold">WNW 290°</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center border border-amber-100">
+<span class="material-symbols-outlined text-[18px]">compress</span>
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-slate-400 block font-semibold">BAROMETER</span>
+<span class="font-label-mono text-label-mono text-slate-800 font-semibold">1014.2 hPa</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center border border-blue-100">
+<span class="material-symbols-outlined text-[18px]">water_drop</span>
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-slate-400 block font-semibold">DEW POINT</span>
+<span class="font-label-mono text-label-mono text-slate-800 font-semibold">54° F</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center border border-amber-100">
+<span class="material-symbols-outlined text-[18px]">wb_sunny</span>
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-slate-400 block font-semibold">DAYLIGHT REMAINING</span>
+<span class="font-label-mono text-label-mono text-slate-800 font-semibold">5h 17m</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Secondary Hero Panel: Live Doppler Mini Preview (4 Cols) -->
+<div class="xl:col-span-4 rounded-2xl bg-white/90 backdrop-blur-2xl p-space-lg shadow-[0_4px_24px_-4px_rgba(15,23,42,0.06),0_2px_8px_-2px_rgba(15,23,42,0.03)] border border-slate-200/90 relative overflow-hidden flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-rose-500 animate-ping"></span>
+<span class="font-label-caps text-label-caps text-slate-800 tracking-wider uppercase font-semibold">Live Bay Radar</span>
+</div>
+<div class="flex items-center bg-slate-100 rounded-full p-0.5 border border-slate-200/80">
+<button class="px-2.5 py-0.5 rounded-full font-label-mono text-label-mono bg-white text-sky-700 font-semibold shadow-sm">Precip</button>
+<button class="px-2.5 py-0.5 rounded-full font-label-mono text-label-mono text-slate-500 hover:text-slate-900 transition-colors">Wind</button>
+</div>
+</div>
+<!-- Radar Mini Simulation View -->
+<div class="relative w-full h-56 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 group cursor-crosshair shadow-inner">
+<!-- Simulated GIS Satellite Base -->
+<div class="w-full h-full bg-cover bg-center opacity-85 scale-105 group-hover:scale-100 transition-transform duration-700" data-location="San Francisco, California" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBPQ1WHphfwzKWiJtrIYUVdRknD7Q4BY58SAlUtMSOqf5P5PlX-QvWvydoD9SPSW3HZiZ3EDOYo5L1-DCGa7UUq0T27IC25BbgZnDznKbS3VSsExKr_a30ZV_wzOIoSL8rlT8blZBtlYT5bu_C14d9F8EPsvY2CVY0xpm0o0y-Swx08cB83Vr4xmmZH5ldLkj2XaI0knn2mbUpoTi1aQYJWwFG9RYSGYVYUyX3-u8dM')"></div>
+<!-- Precipitation Sweep Layer -->
+<div class="absolute inset-0 bg-gradient-to-tr from-sky-400/20 via-sky-300/10 to-amber-300/20 pointer-events-none mix-blend-multiply"></div>
+<!-- Radar Crosshair & Station Pin -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="w-32 h-32 rounded-full border border-sky-500/30 flex items-center justify-center">
+<div class="w-16 h-16 rounded-full border border-sky-600/40 flex items-center justify-center">
+<div class="w-2.5 h-2.5 rounded-full bg-rose-500 shadow-[0_0_8px_#f43f5e] ring-2 ring-white"></div>
+</div>
+</div>
+</div>
+<!-- Sweep Beam Line (Animated) -->
+<div class="absolute inset-0 origin-center animate-[spin_6s_linear_infinite] pointer-events-none bg-gradient-to-r from-transparent via-sky-400/25 to-transparent"></div>
+<div class="absolute bottom-2 left-2 px-2.5 py-1 rounded-md bg-white/95 backdrop-blur-md font-label-mono text-label-mono text-sky-800 border border-slate-200/90 flex items-center gap-1.5 shadow-sm font-semibold">
+<span class="material-symbols-outlined text-[14px] text-sky-600">radar</span>
+<span>NEXRAD KMUX • 0.5° TILT</span>
+</div>
+<div class="absolute top-2 right-2 flex items-center gap-1">
+<button class="p-1 rounded-md bg-white/95 border border-slate-200 text-slate-700 hover:text-sky-600 hover:bg-white transition-colors shadow-sm" title="Zoom in">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+<button class="p-1 rounded-md bg-white/95 border border-slate-200 text-slate-700 hover:text-sky-600 hover:bg-white transition-colors shadow-sm" title="Zoom out">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+</div>
+</div>
+<!-- Radar Mini Timeline / Scrub -->
+<div class="mt-space-sm pt-space-sm border-t border-slate-200/80 flex items-center justify-between text-body-sm">
+<div class="flex items-center gap-space-xs font-label-mono text-label-mono text-slate-600">
+<button class="w-7 h-7 rounded-full bg-sky-100 hover:bg-sky-200 text-sky-700 flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[16px]">play_arrow</span>
+</button>
+<span class="font-medium">-45m Loop</span>
+</div>
+<a class="font-label-mono text-label-mono text-sky-600 hover:text-sky-800 font-semibold hover:underline flex items-center gap-1" href="#">
+              Full Screen Map <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- 3. CORE ENVIRONMENTAL TELEMETRY GRID -->
+<section class="w-full">
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="font-headline-sm text-headline-sm text-slate-900 font-bold">Precision Telemetry</span>
+<span class="px-2 py-0.5 rounded-full bg-slate-200/80 font-label-mono text-label-mono text-slate-700 font-medium">Sensor Array 104-SF</span>
+</div>
+<span class="text-slate-500 font-label-mono text-label-mono">Sampling Rate: 1.0 Hz</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Card 1: Wind & Direction -->
+<div class="rounded-2xl bg-white/90 backdrop-blur-xl p-space-lg shadow-[0_4px_20px_-2px_rgba(15,23,42,0.05),0_2px_6px_-1px_rgba(15,23,42,0.03)] border border-slate-200/90 flex flex-col justify-between group hover:border-sky-300 hover:shadow-md transition-all">
+<div class="flex items-center justify-between text-slate-500">
+<span class="font-label-caps text-label-caps uppercase tracking-wider font-semibold">Wind &amp; Gusts</span>
+<span class="material-symbols-outlined text-[18px] text-sky-600">air</span>
+</div>
+<div class="my-space-md flex items-center justify-between">
+<div>
+<div class="flex items-baseline gap-1">
+<span class="font-metric-readout text-metric-readout text-slate-900 font-bold">18</span>
+<span class="font-label-mono text-label-mono text-slate-400 font-medium">mph</span>
+</div>
+<span class="font-body-sm text-body-sm text-amber-600 font-semibold">Gusts up to 28 mph</span>
+</div>
+<!-- Wind Compass Dial SVG -->
+<div class="relative w-14 h-14 flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-45" viewbox="0 0 60 60">
+<circle cx="30" cy="30" fill="none" r="26" stroke="#e2e8f0" stroke-width="2.5"></circle>
+<polygon fill="#0284c7" points="30,8 35,28 30,24 25,28"></polygon>
+<polygon fill="#94a3b8" points="30,52 35,32 30,36 25,32"></polygon>
+</svg>
+<span class="absolute font-label-mono text-[10px] text-slate-500 font-bold top-0">N</span>
+</div>
+</div>
+<div class="font-label-mono text-label-mono text-slate-600 flex items-center justify-between border-t border-slate-100 pt-space-xs">
+<span>Vector: WNW (295°)</span>
+<span class="text-rose-600 font-semibold">Elevated</span>
+</div>
+</div>
+<!-- Card 2: Humidity & Dew Point -->
+<div class="rounded-2xl bg-white/90 backdrop-blur-xl p-space-lg shadow-[0_4px_20px_-2px_rgba(15,23,42,0.05),0_2px_6px_-1px_rgba(15,23,42,0.03)] border border-slate-200/90 flex flex-col justify-between group hover:border-sky-300 hover:shadow-md transition-all">
+<div class="flex items-center justify-between text-slate-500">
+<span class="font-label-caps text-label-caps uppercase tracking-wider font-semibold">Humidity</span>
+<span class="material-symbols-outlined text-[18px] text-sky-500">humidity_percentage</span>
+</div>
+<div class="my-space-md space-y-space-xs">
+<div class="flex items-baseline gap-1">
+<span class="font-metric-readout text-metric-readout text-slate-900 font-bold">72</span>
+<span class="font-label-mono text-label-mono text-slate-400 font-medium">%</span>
+</div>
+<p class="font-body-sm text-body-sm text-slate-600">Dew point 54° • Moderate marine moisture</p>
+<!-- Linear Progress Track -->
+<div class="w-full h-2 rounded-full bg-slate-100 overflow-hidden mt-2 border border-slate-200/50">
+<div class="h-full bg-gradient-to-r from-sky-400 to-sky-600 rounded-full" style="width: 72%;"></div>
+</div>
+</div>
+<div class="font-label-mono text-label-mono text-slate-500 flex items-center justify-between border-t border-slate-100 pt-space-xs">
+<span>Comfort Range: 40-60%</span>
+<span class="text-sky-700 font-semibold">Moist</span>
+</div>
+</div>
+<!-- Card 3: Precipitation Probability -->
+<div class="rounded-2xl bg-white/90 backdrop-blur-xl p-space-lg shadow-[0_4px_20px_-2px_rgba(15,23,42,0.05),0_2px_6px_-1px_rgba(15,23,42,0.03)] border border-slate-200/90 flex flex-col justify-between group hover:border-sky-300 hover:shadow-md transition-all">
+<div class="flex items-center justify-between text-slate-500">
+<span class="font-label-caps text-label-caps uppercase tracking-wider font-semibold">Precipitation</span>
+<span class="material-symbols-outlined text-[18px] text-sky-600">rainy</span>
+</div>
+<div class="my-space-md space-y-space-xs">
+<div class="flex items-baseline gap-1">
+<span class="font-metric-readout text-metric-readout text-slate-900 font-bold">35</span>
+<span class="font-label-mono text-label-mono text-slate-400 font-medium">% chance</span>
+</div>
+<p class="font-body-sm text-body-sm text-slate-600">Light passing sprinkles near 6:00 PM</p>
+<div class="flex items-center gap-space-sm pt-1">
+<span class="font-label-mono text-label-mono text-slate-500">Accumulation:</span>
+<span class="font-label-mono text-label-mono text-slate-800 font-semibold">0.04 in expected</span>
+</div>
+</div>
+<div class="font-label-mono text-label-mono text-slate-500 flex items-center justify-between border-t border-slate-100 pt-space-xs">
+<span>Next 6 Hours</span>
+<span class="text-amber-600 font-semibold">Scattered</span>
+</div>
+</div>
+<!-- Card 4: UV Index -->
+<div class="rounded-2xl bg-white/90 backdrop-blur-xl p-space-lg shadow-[0_4px_20px_-2px_rgba(15,23,42,0.05),0_2px_6px_-1px_rgba(15,23,42,0.03)] border border-slate-200/90 flex flex-col justify-between group hover:border-sky-300 hover:shadow-md transition-all">
+<div class="flex items-center justify-between text-slate-500">
+<span class="font-label-caps text-label-caps uppercase tracking-wider font-semibold">UV Index</span>
+<span class="material-symbols-outlined text-[18px] text-amber-500">wb_sunny</span>
+</div>
+<div class="my-space-md space-y-space-xs">
+<div class="flex items-baseline gap-2">
+<span class="font-metric-readout text-metric-readout text-slate-900 font-bold">5</span>
+<span class="font-label-mono text-label-mono px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 border border-amber-200 font-semibold">Moderate</span>
+</div>
+<p class="font-body-sm text-body-sm text-slate-600">Protection advised until 3:30 PM</p>
+<!-- UV Multi-Segment Bar -->
+<div class="grid grid-cols-5 gap-1 pt-2">
+<div class="h-1.5 rounded-full bg-emerald-500"></div>
+<div class="h-1.5 rounded-full bg-emerald-400"></div>
+<div class="h-1.5 rounded-full bg-amber-400"></div>
+<div class="h-1.5 rounded-full bg-slate-200"></div>
+<div class="h-1.5 rounded-full bg-slate-200"></div>
+</div>
+</div>
+<div class="font-label-mono text-label-mono text-slate-500 flex items-center justify-between border-t border-slate-100 pt-space-xs">
+<span>Peak: 6.2 at 12:45 PM</span>
+<span class="text-slate-700 font-semibold">SPF 30+</span>
+</div>
+</div>
+<!-- Card 5: Air Quality Index (AQI) -->
+<div class="rounded-2xl bg-white/90 backdrop-blur-xl p-space-lg shadow-[0_4px_20px_-2px_rgba(15,23,42,0.05),0_2px_6px_-1px_rgba(15,23,42,0.03)] border border-slate-200/90 flex flex-col justify-between group hover:border-emerald-300 hover:shadow-md transition-all">
+<div class="flex items-center justify-between text-slate-500">
+<span class="font-label-caps text-label-caps uppercase tracking-wider font-semibold">Air Quality (AQI)</span>
+<span class="material-symbols-outlined text-[18px] text-emerald-600">eco</span>
+</div>
+<div class="my-space-md space-y-space-xs">
+<div class="flex items-baseline gap-2">
+<span class="font-metric-readout text-metric-readout text-slate-900 font-bold">34</span>
+<span class="flex items-center gap-1 font-label-mono text-label-mono text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Good
+                </span>
+</div>
+<p class="font-body-sm text-body-sm text-slate-600">Clean Pacific marine layer. Ideal outdoor air.</p>
+<div class="font-label-mono text-label-mono text-slate-500 pt-1">
+<span>PM2.5: <strong class="text-slate-800">8.2 µg/m³</strong></span> • 
+                <span>O3: <strong class="text-slate-800">22 ppb</strong></span>
+</div>
+</div>
+<div class="font-label-mono text-label-mono text-slate-500 flex items-center justify-between border-t border-slate-100 pt-space-xs">
+<span>Standard: EPA AQI</span>
+<span class="text-emerald-700 font-semibold">Optimal</span>
+</div>
+</div>
+<!-- Card 6: Visibility -->
+<div class="rounded-2xl bg-white/90 backdrop-blur-xl p-space-lg shadow-[0_4px_20px_-2px_rgba(15,23,42,0.05),0_2px_6px_-1px_rgba(15,23,42,0.03)] border border-slate-200/90 flex flex-col justify-between group hover:border-sky-300 hover:shadow-md transition-all">
+<div class="flex items-center justify-between text-slate-500">
+<span class="font-label-caps text-label-caps uppercase tracking-wider font-semibold">Visibility</span>
+<span class="material-symbols-outlined text-[18px] text-slate-400">visibility</span>
+</div>
+<div class="my-space-md space-y-space-xs">
+<div class="flex items-baseline gap-1">
+<span class="font-metric-readout text-metric-readout text-slate-900 font-bold">9.8</span>
+<span class="font-label-mono text-label-mono text-slate-400 font-medium">miles</span>
+</div>
+<p class="font-body-sm text-body-sm text-slate-600">Clear coastal horizon, thin offshore haze.</p>
+<div class="w-full h-2 rounded-full bg-slate-100 overflow-hidden mt-2 border border-slate-200/50">
+<div class="h-full bg-sky-500 rounded-full" style="width: 98%;"></div>
+</div>
+</div>
+<div class="font-label-mono text-label-mono text-slate-500 flex items-center justify-between border-t border-slate-100 pt-space-xs">
+<span>Horizon: Sutro Tower clear</span>
+<span class="text-slate-800 font-semibold">Unrestricted</span>
+</div>
+</div>
+<!-- Card 7: Barometric Pressure -->
+<div class="rounded-2xl bg-white/90 backdrop-blur-xl p-space-lg shadow-[0_4px_20px_-2px_rgba(15,23,42,0.05),0_2px_6px_-1px_rgba(15,23,42,0.03)] border border-slate-200/90 flex flex-col justify-between group hover:border-amber-300 hover:shadow-md transition-all">
+<div class="flex items-center justify-between text-slate-500">
+<span class="font-label-caps text-label-caps uppercase tracking-wider font-semibold">Pressure Trend</span>
+<span class="material-symbols-outlined text-[18px] text-amber-600">speed</span>
+</div>
+<div class="my-space-md space-y-space-xs">
+<div class="flex items-baseline gap-1">
+<span class="font-metric-readout text-metric-readout text-slate-900 font-bold">1014.2</span>
+<span class="font-label-mono text-label-mono text-slate-400 font-medium">hPa</span>
+</div>
+<p class="font-body-sm text-body-sm text-slate-600">Steady isobar curve across central coast.</p>
+<!-- Micro Sparkline SVG -->
+<svg class="w-full h-5 text-amber-500" viewbox="0 0 120 20">
+<path d="M0,12 Q30,10 60,11 T120,9" fill="none" stroke="currentColor" stroke-width="2.5"></path>
+<circle cx="120" cy="9" fill="currentColor" r="3"></circle>
+</svg>
+</div>
+<div class="font-label-mono text-label-mono text-slate-500 flex items-center justify-between border-t border-slate-100 pt-space-xs">
+<span>Rate: +0.2 hPa / 3h</span>
+<span class="text-amber-700 font-semibold">Stable</span>
+</div>
+</div>
+<!-- Card 8: Solar Arc Curve Indicator -->
+<div class="rounded-2xl bg-white/90 backdrop-blur-xl p-space-lg shadow-[0_4px_20px_-2px_rgba(15,23,42,0.05),0_2px_6px_-1px_rgba(15,23,42,0.03)] border border-slate-200/90 flex flex-col justify-between group hover:border-amber-300 hover:shadow-md transition-all">
+<div class="flex items-center justify-between text-slate-500">
+<span class="font-label-caps text-label-caps uppercase tracking-wider font-semibold">Solar Cycle</span>
+<span class="material-symbols-outlined text-[18px] text-amber-500">wb_twilight</span>
+</div>
+<div class="my-space-sm">
+<!-- Solar Arc SVG Graphic -->
+<div class="relative w-full h-16 flex items-center justify-center">
+<svg class="w-full h-full overflow-visible" viewbox="0 0 140 50">
+<!-- Arc Path -->
+<path d="M 10 45 Q 70 -5 130 45" fill="none" stroke="#e2e8f0" stroke-dasharray="3 3" stroke-width="2.5"></path>
+<!-- Traveled Path -->
+<path d="M 10 45 Q 50 15 90 20" fill="none" stroke="#f59e0b" stroke-width="3"></path>
+<!-- Current Sun Point -->
+<circle class="shadow-md" cx="90" cy="20" fill="#f59e0b" r="5" stroke="#ffffff" stroke-width="1.5"></circle>
+<!-- Base Ground Line -->
+<line stroke="#cbd5e1" stroke-width="1.5" x1="5" x2="135" y1="45" y2="45"></line>
+</svg>
+</div>
+<div class="flex items-center justify-between font-label-mono text-label-mono text-slate-800 pt-1 font-semibold">
+<div>
+<span class="text-slate-400 block text-[10px] font-medium">SUNRISE</span>
+<span>6:18 AM</span>
+</div>
+<div class="text-right">
+<span class="text-slate-400 block text-[10px] font-medium">SUNSET</span>
+<span class="text-amber-600">8:02 PM</span>
+</div>
+</div>
+</div>
+<div class="font-label-mono text-label-mono text-slate-500 flex items-center justify-between border-t border-slate-100 pt-space-xs">
+<span>Solar Noon: 1:10 PM</span>
+<span class="text-slate-700 font-medium">Azimuth 238°</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. 24-HOUR HOURLY FORECAST HORIZONTAL SCRUBBER -->
+<section class="rounded-2xl bg-white/90 backdrop-blur-2xl p-space-lg shadow-[0_4px_24px_-4px_rgba(15,23,42,0.06),0_2px_8px_-2px_rgba(15,23,42,0.03)] border border-slate-200/90">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm mb-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="font-headline-sm text-headline-sm text-slate-900 font-bold">24-Hour Horizon Progression</span>
+<span class="text-slate-500 font-label-mono text-label-mono">• Hourly increments</span>
+</div>
+<div class="flex items-center gap-space-xs text-slate-500 font-label-mono text-label-mono">
+<span class="flex items-center gap-1 font-medium"><span class="w-2 h-2 rounded-full bg-sky-600"></span> Temp</span>
+<span class="flex items-center gap-1 ml-2 font-medium"><span class="w-2 h-2 rounded-full bg-sky-400"></span> Precip %</span>
+</div>
+</div>
+<!-- Scrollable Hourly Strip -->
+<div class="overflow-x-auto pb-space-sm pt-2 scrollbar-thin">
+<div class="flex items-stretch gap-space-sm min-w-[960px]">
+<!-- Hour Node: Now -->
+<div class="flex-1 rounded-xl bg-sky-50/80 p-space-md flex flex-col items-center justify-between gap-3 text-center border-2 border-sky-400 shadow-sm">
+<span class="font-label-mono text-label-mono text-sky-800 font-bold">NOW</span>
+<span class="material-symbols-outlined text-[24px] text-amber-500">partly_cloudy_day</span>
+<span class="font-headline-sm text-headline-sm text-slate-900 font-bold">64°</span>
+<div class="w-full flex items-center justify-center gap-1 text-slate-500 font-label-mono text-[11px] font-medium">
+<span class="material-symbols-outlined text-[13px] text-sky-500">water_drop</span>
+<span>10%</span>
+</div>
+</div>
+<!-- Hour Node: 3 PM -->
+<div class="flex-1 rounded-xl bg-slate-50 hover:bg-white transition-all p-space-md flex flex-col items-center justify-between gap-3 text-center border border-slate-200/70 hover:shadow-sm">
+<span class="font-label-mono text-label-mono text-slate-500 font-medium">3 PM</span>
+<span class="material-symbols-outlined text-[24px] text-amber-500">wb_sunny</span>
+<span class="font-headline-sm text-headline-sm text-slate-900 font-bold">67°</span>
+<div class="w-full flex items-center justify-center gap-1 text-slate-500 font-label-mono text-[11px]">
+<span class="material-symbols-outlined text-[13px] text-sky-500">water_drop</span>
+<span>15%</span>
+</div>
+</div>
+<!-- Hour Node: 4 PM (Peak) -->
+<div class="flex-1 rounded-xl bg-slate-50 hover:bg-white transition-all p-space-md flex flex-col items-center justify-between gap-3 text-center border border-slate-200/70 hover:shadow-sm">
+<span class="font-label-mono text-label-mono text-slate-500 font-medium">4 PM</span>
+<span class="material-symbols-outlined text-[24px] text-amber-500">wb_sunny</span>
+<span class="font-headline-sm text-headline-sm text-amber-600 font-bold">68°</span>
+<div class="w-full flex items-center justify-center gap-1 text-slate-500 font-label-mono text-[11px]">
+<span class="material-symbols-outlined text-[13px] text-sky-500">water_drop</span>
+<span>20%</span>
+</div>
+</div>
+<!-- Hour Node: 5 PM -->
+<div class="flex-1 rounded-xl bg-slate-50 hover:bg-white transition-all p-space-md flex flex-col items-center justify-between gap-3 text-center border border-slate-200/70 hover:shadow-sm">
+<span class="font-label-mono text-label-mono text-slate-500 font-medium">5 PM</span>
+<span class="material-symbols-outlined text-[24px] text-slate-400">cloud</span>
+<span class="font-headline-sm text-headline-sm text-slate-900 font-bold">65°</span>
+<div class="w-full flex items-center justify-center gap-1 text-slate-500 font-label-mono text-[11px]">
+<span class="material-symbols-outlined text-[13px] text-sky-500">water_drop</span>
+<span>25%</span>
+</div>
+</div>
+<!-- Hour Node: 6 PM (Showers chance) -->
+<div class="flex-1 rounded-xl bg-sky-50/60 p-space-md flex flex-col items-center justify-between gap-3 text-center border-t-2 border-sky-500 border-x border-b border-sky-200/70 shadow-sm">
+<span class="font-label-mono text-label-mono text-sky-700 font-bold">6 PM</span>
+<span class="material-symbols-outlined text-[24px] text-sky-600">rainy</span>
+<span class="font-headline-sm text-headline-sm text-slate-900 font-bold">62°</span>
+<div class="w-full flex items-center justify-center gap-1 text-sky-700 font-label-mono text-[11px] font-bold">
+<span class="material-symbols-outlined text-[13px]">water_drop</span>
+<span>35%</span>
+</div>
+</div>
+<!-- Hour Node: 7 PM -->
+<div class="flex-1 rounded-xl bg-slate-50 hover:bg-white transition-all p-space-md flex flex-col items-center justify-between gap-3 text-center border border-slate-200/70 hover:shadow-sm">
+<span class="font-label-mono text-label-mono text-slate-500 font-medium">7 PM</span>
+<span class="material-symbols-outlined text-[24px] text-slate-400">cloud</span>
+<span class="font-headline-sm text-headline-sm text-slate-900 font-bold">60°</span>
+<div class="w-full flex items-center justify-center gap-1 text-slate-500 font-label-mono text-[11px]">
+<span class="material-symbols-outlined text-[13px] text-sky-500">water_drop</span>
+<span>30%</span>
+</div>
+</div>
+<!-- Hour Node: 8 PM (Sunset) -->
+<div class="flex-1 rounded-xl bg-slate-50 hover:bg-white transition-all p-space-md flex flex-col items-center justify-between gap-3 text-center border border-slate-200/70 hover:shadow-sm">
+<span class="font-label-mono text-label-mono text-slate-500 font-medium">8 PM</span>
+<span class="material-symbols-outlined text-[24px] text-indigo-400">nights_stay</span>
+<span class="font-headline-sm text-headline-sm text-slate-900 font-bold">58°</span>
+<div class="w-full flex items-center justify-center gap-1 text-slate-500 font-label-mono text-[11px]">
+<span class="material-symbols-outlined text-[13px] text-sky-500">water_drop</span>
+<span>15%</span>
+</div>
+</div>
+<!-- Hour Node: 9 PM -->
+<div class="flex-1 rounded-xl bg-slate-50 hover:bg-white transition-all p-space-md flex flex-col items-center justify-between gap-3 text-center border border-slate-200/70 hover:shadow-sm">
+<span class="font-label-mono text-label-mono text-slate-500 font-medium">9 PM</span>
+<span class="material-symbols-outlined text-[24px] text-slate-400">bedtime</span>
+<span class="font-headline-sm text-headline-sm text-slate-900 font-bold">56°</span>
+<div class="w-full flex items-center justify-center gap-1 text-slate-500 font-label-mono text-[11px]">
+<span class="material-symbols-outlined text-[13px] text-sky-500">water_drop</span>
+<span>10%</span>
+</div>
+</div>
+<!-- Hour Node: 10 PM -->
+<div class="flex-1 rounded-xl bg-slate-50 hover:bg-white transition-all p-space-md flex flex-col items-center justify-between gap-3 text-center border border-slate-200/70 hover:shadow-sm">
+<span class="font-label-mono text-label-mono text-slate-500 font-medium">10 PM</span>
+<span class="material-symbols-outlined text-[24px] text-slate-400">bedtime</span>
+<span class="font-headline-sm text-headline-sm text-slate-900 font-bold">55°</span>
+<div class="w-full flex items-center justify-center gap-1 text-slate-500 font-label-mono text-[11px]">
+<span class="material-symbols-outlined text-[13px] text-sky-500">water_drop</span>
+<span>5%</span>
+</div>
+</div>
+<!-- Hour Node: 11 PM -->
+<div class="flex-1 rounded-xl bg-slate-50 hover:bg-white transition-all p-space-md flex flex-col items-center justify-between gap-3 text-center border border-slate-200/70 hover:shadow-sm">
+<span class="font-label-mono text-label-mono text-slate-500 font-medium">11 PM</span>
+<span class="material-symbols-outlined text-[24px] text-slate-400">bedtime</span>
+<span class="font-headline-sm text-headline-sm text-slate-900 font-bold">54°</span>
+<div class="w-full flex items-center justify-center gap-1 text-slate-500 font-label-mono text-[11px]">
+<span class="material-symbols-outlined text-[13px] text-sky-500">water_drop</span>
+<span>5%</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. 7-DAY EXTENDED OUTLOOK & LOCAL METEOROLOGY NOTES (SPLIT) -->
+<section class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg">
+<!-- 7-Day Outlook List (8 Cols) -->
+<div class="xl:col-span-8 rounded-2xl bg-white/90 backdrop-blur-2xl p-space-lg shadow-[0_4px_24px_-4px_rgba(15,23,42,0.06),0_2px_8px_-2px_rgba(15,23,42,0.03)] border border-slate-200/90 space-y-space-md">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-slate-900 font-bold">7-Day Macro Trajectory</span>
+<span class="font-label-mono text-label-mono text-slate-500">San Francisco Bay Coastal Zone</span>
+</div>
+<!-- Extended Rows List -->
+<div class="space-y-space-xs divide-y divide-slate-100">
+<!-- Day: Today -->
+<div class="pt-space-xs flex items-center justify-between gap-space-md py-2.5">
+<span class="font-body-md text-body-md text-slate-900 font-semibold w-24">Today</span>
+<div class="flex items-center gap-space-sm w-44">
+<span class="material-symbols-outlined text-[20px] text-amber-500">partly_cloudy_day</span>
+<span class="font-body-sm text-body-sm text-slate-700 truncate font-medium">Marine Haze</span>
+</div>
+<div class="hidden sm:flex items-center gap-1 w-20 text-slate-500 font-label-mono text-label-mono">
+<span class="material-symbols-outlined text-[14px] text-sky-500">water_drop</span>
+<span>35%</span>
+</div>
+<!-- Min/Max Range Bar -->
+<div class="flex-1 flex items-center gap-space-sm max-w-xs">
+<span class="font-label-mono text-label-mono text-slate-500 font-medium w-7 text-right">52°</span>
+<div class="flex-1 h-2 rounded-full bg-slate-100 relative border border-slate-200/60">
+<div class="absolute h-full rounded-full bg-gradient-to-r from-sky-400 to-amber-400" style="left: 15%; right: 20%;"></div>
+</div>
+<span class="font-label-mono text-label-mono text-slate-900 font-bold w-7">68°</span>
+</div>
+</div>
+<!-- Day: Tue -->
+<div class="pt-space-xs flex items-center justify-between gap-space-md py-2.5">
+<span class="font-body-md text-body-md text-slate-800 font-medium w-24">Tue, Jun 18</span>
+<div class="flex items-center gap-space-sm w-44">
+<span class="material-symbols-outlined text-[20px] text-sky-600">rainy</span>
+<span class="font-body-sm text-body-sm text-slate-700 truncate font-medium">Morning Drizzle</span>
+</div>
+<div class="hidden sm:flex items-center gap-1 w-20 text-sky-600 font-label-mono text-label-mono font-medium">
+<span class="material-symbols-outlined text-[14px]">water_drop</span>
+<span>55%</span>
+</div>
+<div class="flex-1 flex items-center gap-space-sm max-w-xs">
+<span class="font-label-mono text-label-mono text-slate-500 font-medium w-7 text-right">50°</span>
+<div class="flex-1 h-2 rounded-full bg-slate-100 relative border border-slate-200/60">
+<div class="absolute h-full rounded-full bg-gradient-to-r from-sky-500 to-sky-400" style="left: 10%; right: 40%;"></div>
+</div>
+<span class="font-label-mono text-label-mono text-slate-900 font-bold w-7">61°</span>
+</div>
+</div>
+<!-- Day: Wed -->
+<div class="pt-space-xs flex items-center justify-between gap-space-md py-2.5">
+<span class="font-body-md text-body-md text-slate-800 font-medium w-24">Wed, Jun 19</span>
+<div class="flex items-center gap-space-sm w-44">
+<span class="material-symbols-outlined text-[20px] text-amber-500">wb_sunny</span>
+<span class="font-body-sm text-body-sm text-slate-700 truncate font-medium">Clear Pacific Sun</span>
+</div>
+<div class="hidden sm:flex items-center gap-1 w-20 text-slate-500 font-label-mono text-label-mono">
+<span class="material-symbols-outlined text-[14px] text-sky-500">water_drop</span>
+<span>5%</span>
+</div>
+<div class="flex-1 flex items-center gap-space-sm max-w-xs">
+<span class="font-label-mono text-label-mono text-slate-500 font-medium w-7 text-right">53°</span>
+<div class="flex-1 h-2 rounded-full bg-slate-100 relative border border-slate-200/60">
+<div class="absolute h-full rounded-full bg-gradient-to-r from-sky-400 to-amber-500" style="left: 20%; right: 10%;"></div>
+</div>
+<span class="font-label-mono text-label-mono text-slate-900 font-bold w-7">71°</span>
+</div>
+</div>
+<!-- Day: Thu -->
+<div class="pt-space-xs flex items-center justify-between gap-space-md py-2.5">
+<span class="font-body-md text-body-md text-slate-800 font-medium w-24">Thu, Jun 20</span>
+<div class="flex items-center gap-space-sm w-44">
+<span class="material-symbols-outlined text-[20px] text-amber-500">wb_sunny</span>
+<span class="font-body-sm text-body-sm text-slate-700 truncate font-medium">Sunny &amp; Breezy</span>
+</div>
+<div class="hidden sm:flex items-center gap-1 w-20 text-slate-500 font-label-mono text-label-mono">
+<span class="material-symbols-outlined text-[14px] text-sky-500">water_drop</span>
+<span>0%</span>
+</div>
+<div class="flex-1 flex items-center gap-space-sm max-w-xs">
+<span class="font-label-mono text-label-mono text-slate-500 font-medium w-7 text-right">55°</span>
+<div class="flex-1 h-2 rounded-full bg-slate-100 relative border border-slate-200/60">
+<div class="absolute h-full rounded-full bg-gradient-to-r from-amber-400 to-amber-500" style="left: 25%; right: 5%;"></div>
+</div>
+<span class="font-label-mono text-label-mono text-slate-900 font-bold w-7">74°</span>
+</div>
+</div>
+<!-- Day: Fri -->
+<div class="pt-space-xs flex items-center justify-between gap-space-md py-2.5">
+<span class="font-body-md text-body-md text-slate-800 font-medium w-24">Fri, Jun 21</span>
+<div class="flex items-center gap-space-sm w-44">
+<span class="material-symbols-outlined text-[20px] text-slate-400">foggy</span>
+<span class="font-body-sm text-body-sm text-slate-700 truncate font-medium">Dense Karl The Fog</span>
+</div>
+<div class="hidden sm:flex items-center gap-1 w-20 text-slate-500 font-label-mono text-label-mono">
+<span class="material-symbols-outlined text-[14px] text-sky-500">water_drop</span>
+<span>20%</span>
+</div>
+<div class="flex-1 flex items-center gap-space-sm max-w-xs">
+<span class="font-label-mono text-label-mono text-slate-500 font-medium w-7 text-right">51°</span>
+<div class="flex-1 h-2 rounded-full bg-slate-100 relative border border-slate-200/60">
+<div class="absolute h-full rounded-full bg-gradient-to-r from-sky-400 to-sky-500" style="left: 12%; right: 35%;"></div>
+</div>
+<span class="font-label-mono text-label-mono text-slate-900 font-bold w-7">63°</span>
+</div>
+</div>
+<!-- Day: Sat -->
+<div class="pt-space-xs flex items-center justify-between gap-space-md py-2.5">
+<span class="font-body-md text-body-md text-slate-800 font-medium w-24">Sat, Jun 22</span>
+<div class="flex items-center gap-space-sm w-44">
+<span class="material-symbols-outlined text-[20px] text-amber-500">partly_cloudy_day</span>
+<span class="font-body-sm text-body-sm text-slate-700 truncate font-medium">Afternoon Clearing</span>
+</div>
+<div class="hidden sm:flex items-center gap-1 w-20 text-slate-500 font-label-mono text-label-mono">
+<span class="material-symbols-outlined text-[14px] text-sky-500">water_drop</span>
+<span>10%</span>
+</div>
+<div class="flex-1 flex items-center gap-space-sm max-w-xs">
+<span class="font-label-mono text-label-mono text-slate-500 font-medium w-7 text-right">52°</span>
+<div class="flex-1 h-2 rounded-full bg-slate-100 relative border border-slate-200/60">
+<div class="absolute h-full rounded-full bg-gradient-to-r from-sky-400 to-amber-400" style="left: 15%; right: 25%;"></div>
+</div>
+<span class="font-label-mono text-label-mono text-slate-900 font-bold w-7">66°</span>
+</div>
+</div>
+<!-- Day: Sun -->
+<div class="pt-space-xs flex items-center justify-between gap-space-md py-2.5">
+<span class="font-body-md text-body-md text-slate-800 font-medium w-24">Sun, Jun 23</span>
+<div class="flex items-center gap-space-sm w-44">
+<span class="material-symbols-outlined text-[20px] text-amber-500">wb_sunny</span>
+<span class="font-body-sm text-body-sm text-slate-700 truncate font-medium">Mild &amp; Sunny</span>
+</div>
+<div class="hidden sm:flex items-center gap-1 w-20 text-slate-500 font-label-mono text-label-mono">
+<span class="material-symbols-outlined text-[14px] text-sky-500">water_drop</span>
+<span>0%</span>
+</div>
+<div class="flex-1 flex items-center gap-space-sm max-w-xs">
+<span class="font-label-mono text-label-mono text-slate-500 font-medium w-7 text-right">54°</span>
+<div class="flex-1 h-2 rounded-full bg-slate-100 relative border border-slate-200/60">
+<div class="absolute h-full rounded-full bg-gradient-to-r from-sky-400 to-amber-500" style="left: 20%; right: 15%;"></div>
+</div>
+<span class="font-label-mono text-label-mono text-slate-900 font-bold w-7">69°</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Observational Briefing & Synoptic Insight (4 Cols) -->
+<div class="xl:col-span-4 rounded-2xl bg-white/90 backdrop-blur-2xl p-space-lg shadow-[0_4px_24px_-4px_rgba(15,23,42,0.06),0_2px_8px_-2px_rgba(15,23,42,0.03)] border border-slate-200/90 flex flex-col justify-between space-y-space-md">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-slate-900 font-bold">Synoptic Briefing</span>
+<span class="font-label-mono text-label-mono text-amber-700 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-full font-semibold">NOAA SFO</span>
+</div>
+<p class="font-body-md text-body-md text-slate-600 leading-relaxed">
+              A shallow marine layer (~1,200 ft deep) persists along the immediate Pacific shoreline. Thermal trough development inland will generate moderate to strong afternoon onshore pressure gradients, with gusts approaching 40+ knots near coastal gaps.
+            </p>
+<div class="bg-slate-50 border border-slate-200/80 p-space-md rounded-xl space-y-2.5">
+<div class="flex items-center justify-between font-label-mono text-label-mono">
+<span class="text-slate-500">MARINE LAYER INVERSION</span>
+<span class="text-sky-700 font-bold">1,250 FT</span>
+</div>
+<div class="flex items-center justify-between font-label-mono text-label-mono">
+<span class="text-slate-500">COASTAL SWELL DIRECTION</span>
+<span class="text-slate-900 font-semibold">WNW 8 FT @ 12s</span>
+</div>
+<div class="flex items-center justify-between font-label-mono text-label-mono">
+<span class="text-slate-500">HIGH TIDE WINDOW</span>
+<span class="text-slate-900 font-semibold">4:42 PM (+5.8 FT)</span>
+</div>
+</div>
+</div>
+<!-- Micro Location Photo Card -->
+<div class="relative rounded-xl overflow-hidden h-36 bg-slate-100 border border-slate-200">
+<img class="w-full h-full object-cover" data-alt="Cinematic aerial photograph of the Golden Gate Bridge engulfed in rolling white marine fog under evening twilight indigo sky, long exposure water reflections, hyper-detailed atmospheric photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPJNW8g9AiebICPnbkj3hih_4LsqNfxjEYmIZVF56eyUvfUFTNppn2bme0Y7Kop43eEZZ_b2nBjVrkXxvYUkFR2bJyy19Wm5RCKbvUuYmcaLhOrBtelQpuRD_sZ7a8rW9xzkhHCuECRe-_XSP6Q51tvE0PUezFWK9FmmRYJEU7rUKgL8hQuJbO2Oe62hg-EqsGqEzBFcUtPjLg5LFkseOkHy2l3OHnuobmTbzTbIXC"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent flex items-end p-space-sm">
+<div class="font-label-mono text-label-mono text-white flex items-center justify-between w-full drop-shadow-sm font-medium">
+<span>San Francisco Presidio Cam</span>
+<span class="text-emerald-400 flex items-center gap-1 font-bold"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>LIVE</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+<script>
+  function toggleAlertDetails() {
+    const details = document.getElementById('alertDetails');
+    const toggleText = document.getElementById('alertToggleText');
+    const toggleIcon = document.getElementById('alertToggleIcon');
+
+    if (details.classList.contains('hidden')) {
+      details.classList.remove('hidden');
+      toggleText.textContent = 'Collapse Protocol';
+      toggleIcon.classList.add('rotate-180');
+    } else {
+      details.classList.add('hidden');
+      toggleText.textContent = 'View Full Protocol';
+      toggleIcon.classList.remove('rotate-180');
+    }
+  }
+</script></main><footer class="w-full bg-white border-t border-slate-200/90 py-space-xl mt-space-xl shadow-sm"><div class="w-full px-gutter-desktop mx-auto flex flex-col md:flex-row items-center justify-between gap-space-md text-slate-500"><div class="flex items-center gap-space-sm"><span class="font-headline-sm text-headline-sm text-slate-900 font-bold">AuraSky</span><span class="text-slate-400 text-label-mono font-label-mono">• Technical Atmospheric Intelligence</span></div><div class="flex items-center gap-space-lg text-body-sm font-body-sm"><span class="text-slate-500 font-label-mono text-label-mono">API Latency: 14ms</span><span class="text-slate-500 font-label-mono text-label-mono">Station: WMO-44018</span><span>© 2024 AuraSky Systems. All rights reserved.</span></div></div></footer></body></html>
